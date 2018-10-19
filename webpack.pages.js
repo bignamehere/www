@@ -14,7 +14,7 @@ function addPages(dir){
     var fn = file.split('.')[0];
     var newTitle = fn;
     var newTemplate = dir + file;
-    var newFilename = path.resolve(__dirname, "./dist/"+ fn +".html" );
+    var newFilename = path.resolve(__dirname, "./build/"+ fn +".html" );
 
     plugins.push(
       new HTMLWebpackPlugin(

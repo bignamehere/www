@@ -19,7 +19,7 @@ module.exports = merge(common, {
   },
 
   output: {
-    path: path.resolve('./dist'),
+    path: path.resolve('./build'),
     filename: '[name].bundle.js'    
   },
 
@@ -51,6 +51,6 @@ module.exports = merge(common, {
   },
 
   plugins: [
-    new CleanWebpackPlugin(['./dist/']),
+    new CleanWebpackPlugin(['./build/']),
   ]
 });
