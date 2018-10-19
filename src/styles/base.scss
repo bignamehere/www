@@ -1,0 +1,16 @@
+/* Project specific overrides/additions */
+
+@import './variables.scss';
+@import './utilities.scss';
+@import './typography.scss';
+@import './components/skipnav.scss';
+
+.butter-logo {
+    background-color: $color-black-light;
+}
+
+body {
+    background-color: $color-site-bg;
+    line-height: $base-line-height;
+    color: $color-base;
+  }

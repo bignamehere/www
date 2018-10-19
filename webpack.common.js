@@ -5,12 +5,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLBeautifyPlugin = require('html-beautify-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const HandlebarsWebpackPlugin = require('handlebars-webpack-plugin');
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const WebpackPages = require('./webpack.pages.js');
 
-const fsaStyleImg = path.join(__dirname, 'node_modules/fsa-style/src/img/');
+//const fsaStyleImg = path.join(__dirname, 'node_modules/fsa-style/src/img/');
 
 
 module.exports = {
@@ -18,17 +17,19 @@ module.exports = {
   devtool: 'source-map',
 
   entry:  {
-    'fsa-style': [
+    'bignamehere': [
       path.resolve(__dirname, 'src/index.js')
     ]
   },
 
   resolve: {
-    modules: ['node_modules', 'src'],
+    modules: ['node_modules', 'src']
+    /*
     alias: {
       'FSA-STYLE-SCSS' : path.join(__dirname, 'node_modules/fsa-style/src/stylesheets/fsa-style.scss'),
       'FSA-STYLE-JS' : path.join(__dirname, 'node_modules/fsa-style/src/js/main.js')
     }
+    */
   },
 
   module: {
@@ -48,32 +49,11 @@ module.exports = {
         ]
       },
       {
-        test: /\.hbs$/,
-        use: [
-          {
-            loader: "handlebars-loader",
-            query: {
-              partialDirs: [
-                  path.join(__dirname, 'src', '/**/')
-              ]
-            }
-          }
-        ]
-      },
-      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader'
-          }
-        ]
-      },
-      {
-        test: require.resolve("jquery"),
-        use: [
-          {
-            loader: "imports-loader?$=jquery"
           }
         ]
       },
@@ -84,14 +64,6 @@ module.exports = {
           'css-loader',
           'postcss-loader',
           'sass-loader'
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader'
         ]
       },
       {
@@ -133,10 +105,12 @@ module.exports.plugins.push(
       from: './src/img',
       to: './img/'
     },
+    /*
     {
       from: fsaStyleImg,
       to: './img/'
     },
+    */
     {
       from: './src/fonts',
       to: './fonts/'

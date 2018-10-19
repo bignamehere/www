@@ -51,10 +51,6 @@ module.exports = merge(common, {
   },
 
   plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    }),
     new CleanWebpackPlugin(['./dist/']),
   ]
 });
