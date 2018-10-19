@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import Butter from 'buttercms'
 
 const butter = Butter('83c7a2fe135038b0520ed5ec9df758e57b76f681');
@@ -24,9 +24,9 @@ class Blog extends Component {
   }
 
   componentWillMount() {
-    let page = this.props.params.page || 1;
-
-    this.fetchPosts(page)
+    //let page = this.props.params.page || 1;
+    //this.fetchPosts(page);
+    this.fetchPosts(1);
 	}
 	
 	componentWillReceiveProps(nextProps) {
@@ -46,7 +46,7 @@ class Blog extends Component {
           {this.state.resp.data.map((post) => {
             return (
               <div key={post.slug}>
-                <Link to={`/post/${post.slug}`}>{post.title}</Link>
+                <Link to={`/insights/${post.slug}`}>{post.title}</Link>
               </div>
             )
           })}
@@ -54,9 +54,9 @@ class Blog extends Component {
           <br />
 
           <div>
-            {previous_page && <Link to={`/p/${previous_page}`}>Prev</Link>}
+            {previous_page && <Link to={`/insights/${previous_page}`}>Prev</Link>}
 
-            {next_page && <Link to={`/p/${next_page}`}>Next</Link>}
+            {next_page && <Link to={`/insights/${next_page}`}>Next</Link>}
           </div>
         </div>
       );
