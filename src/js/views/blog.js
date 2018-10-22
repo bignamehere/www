@@ -12,7 +12,8 @@ class Blog extends Component {
     super(props);
 
     this.state = {
-        loaded: false
+      content: null,
+      loaded: false
     };
   }
 
@@ -26,6 +27,13 @@ class Blog extends Component {
   }
 
   componentWillMount() {
+    butter.page.retrieve('*', 'insights').then((resp) => {
+      this.setState({
+        content: resp.data.data
+      })
+    });
+
+
     let page = this.props.match.params.page || 1;
 
     this.fetchPosts(page);
@@ -43,9 +51,15 @@ class Blog extends Component {
     if (this.state.loaded) {
       const { next_page, previous_page } = this.state.resp.meta;
 
+      const fields = this.state.content.fields;
+
       return (
         <div className={"container"}>
           <Nav />
+
+          <h1>{fields.header}</h1>
+          <h3>{fields.lead}</h3>
+          <img width="100%" src={fields.hero_image} />
 
           {this.state.resp.data.map((post) => {
             return (

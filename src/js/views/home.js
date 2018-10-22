@@ -26,7 +26,7 @@ class Home extends Component {
   render() {
     if (this.state.content) {
       const fields = this.state.content.fields;
-      console.log(fields);
+      
       return (
         <div className={"container"}>
           <Nav />
