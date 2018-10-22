@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Butter from 'buttercms';
 
-import Nav from '../components/Nav/nav';
+import Header from '../components/Header/header';
 
 const butter = Butter('83c7a2fe135038b0520ed5ec9df758e57b76f681');
 
@@ -55,7 +55,7 @@ class Blog extends Component {
 
       return (
         <div className={"container"}>
-          <Nav />
+          <Header />
 
           <h1>{fields.header}</h1>
           <h3>{fields.lead}</h3>

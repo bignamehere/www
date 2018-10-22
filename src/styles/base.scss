@@ -1,16 +1,70 @@
 /* Project specific overrides/additions */
 
-@import './variables.scss';
-@import './utilities.scss';
-@import './typography.scss';
+@import './core/variables.scss';
+@import './core/utilities.scss';
+@import './core/typography.scss';
+@import './core/fonts.scss';
+@import './core/grid.scss';
+//
 @import './components/skipnav.scss';
+@import './components/header.scss';
+@import './components/nav.scss';
 
-.butter-logo {
-    background-color: $color-black-light;
-}
+
+html {}
 
 body {
-    background-color: $color-site-bg;
-    line-height: $base-line-height;
-    color: $color-base;
+	
+	overflow-x: auto;
+	background-color: $color-site-bg;
+	line-height: $base-line-height;
+	color: $color-base;
+	margin: 0;
+
+	@media print {
+		background-color: transparent;
+	}
+}
+
+@media print {
+  @page {
+    size: (8.5in * 1.75) (11in * 1.75);
   }
+}
+
+main:focus {
+  outline: 0;
+}
+
+u {
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+blockquote {
+
+  @include font-size(2);
+  font-style: italic;
+  margin: 0;
+  padding-left: $size-default;
+  border-left: $size-base solid $color-tertiary-200;
+  max-width: $text-max-width;
+
+  @include breakpoint(L) {
+    @include font-size(4);
+    padding-left: $size-medium;
+  }
+
+}
+
+hr {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border: 0;
+  height: 1px;
+  background: $color-tertiary-200;
+}
+
+.butter-logo {
+	background-color: $color-black-light;
+}

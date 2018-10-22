@@ -35,13 +35,59 @@ $color-gray-warm-dark:       #494440 !default;
 $color-gray-warm-light:      #e4e2e0 !default; // lighten($color-gray-warm-dark, 90%)
 $color-gray-cool-light:      #dce4ef !default; // lighten($color-primary, 90%)
 
-$color-primary: $color-base;
+$color-green:                #2e8540 !default;
+$color-green-light:          #4aa564 !default; // lighten($color-green, 20%)
+$color-green-lighter:        #94bfa2 !default; // lighten($color-green, 60%)
+$color-green-lightest:       #e7f4e4 !default; // lighten($color-green, 60%)
+
+$color-primary:              #0071bc !default;
+$color-primary-darker:       #205493 !default;
+$color-primary-darkest:      #112e51 !default;
+
 $color-primary-300: tint($color-primary, 25%);
 $color-primary-200: tint($color-primary, 65%);
 $color-primary-100: tint($color-primary, 85%);
 $color-primary-900: shade($color-primary, 25%);
 
+$color-secondary: $color-green;
+$color-secondary-300: tint($color-secondary, 21%);
+$color-secondary-200: tint($color-secondary, 60%);
+$color-secondary-100: tint($color-secondary, 85%);
+$color-secondary-900: shade($color-secondary, 25%);
+
+$color-tertiary: $color-gray-dark;
+$color-tertiary-300: tint($color-tertiary, 24%);
+$color-tertiary-200: tint($color-tertiary, 80%);
+$color-tertiary-100: tint($color-tertiary, 92%);
+$color-tertiary-900: shade($color-tertiary, 35%);
+
 $color-site-bg: $color-gray-warm-light;
+
+$color-link: $color-primary-300;
+$color-link-hover: $color-base;
+$color-link-visited: #0000cc;
+
+$color-focus:                #3e94cf !default;
+$color-visited:              #4c2c92 !default;
+
+$color-shadow:               rgba(#000, 0.3) !default;
+
+// Magic Numbers
+$text-max-width:      53rem !default;
+$lead-max-width:      77rem !default;
+$site-max-width:      1040px !default;
+$site-margins:        3rem !default;
+$site-margins-mobile: 1.5rem !default;
+$article-max-width:   600px !default;
+$input-max-width:     46rem !default;
+$border-radius:       rem(3px) !default;
+$box-shadow:          0 0 2px $color-shadow !default;
+$focus-shadow:        0 0 3px $color-focus, 0 0 7px $color-focus !default;
+$nav-width:           951px !default;
+
+// 44 x 44 pixels hit target following Apple iOS Human Interface
+// Guidelines
+$hit-area: 4.4rem !default;
 
 // ---------------------------------------------------------------------------
 // Typography
@@ -71,8 +117,6 @@ $font-size-5 : 30;
 $font-size-6 : 40;
 $font-size-7 : 52;
 
-
-
 $lead-font-size: $font-size-4;
 $lead-line-height: 1.7;
 
@@ -86,6 +130,9 @@ $font-light:  300;
 $font-normal: 400;
 $font-bold:   700;
 
-$color-link: $color-primary-300;
-$color-link-hover: $color-base;
-$color-link-visited: #0000cc;
+
+// ---------------------------------------------------------------------------
+// FSA Grid Settings
+
+$grid-gutter: ($base-font-size * 1.5);
+$grid-columns: 12;

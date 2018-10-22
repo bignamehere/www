@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Butter from 'buttercms';
 import { Helmet } from "react-helmet";
 
-import Nav from '../components/Nav/nav';
+import Header from '../components/Header/header';
 
 const butter = Butter('83c7a2fe135038b0520ed5ec9df758e57b76f681');
 
@@ -43,7 +43,7 @@ class BlogPost extends Component {
           <div className={"container"}>
             
 
-            <Nav />
+            <Header />
             <h1>{post.title}</h1>
             <div dangerouslySetInnerHTML={{__html: post.body}} />
           </div>

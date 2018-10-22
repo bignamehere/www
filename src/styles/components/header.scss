@@ -1,0 +1,137 @@
+
+.header-app {
+
+  $component-spacing: $size-small;
+  $component-text-color: $color-white;
+  $component-bgcolor: $color-primary;
+
+  & {
+    background-color: $color-primary;
+    color: $component-text-color;
+    padding-top: $component-spacing;
+    padding-bottom: ($component-spacing / 2);
+  }
+
+  &__bd {
+
+    display: flex;
+    max-width: ($site-max-width + 24px);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    color: $component-text-color;
+    // scss-lint:disable SpaceAfterPropertyColon TrailingSemicolon
+    padding:
+      ($component-spacing * 2)
+      ($component-spacing + ($component-spacing / 2))
+      ($component-spacing / 2)
+    ;
+
+    @include breakpoint(tablet) {
+      padding-top: ($component-spacing * 4);
+      padding-bottom: ($component-spacing);
+    }
+
+    @media print {
+      max-width: none;
+    }
+
+  }
+
+  &__primary,
+  &__secondary {
+    // outline: 1px solid rgba(255, 255, 255, .2);
+  }
+
+  &__primary {}
+
+  &__secondary {
+
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+    margin-left: auto;
+    padding-left: $component-spacing;
+    padding-bottom: ($component-spacing / 4);
+
+  }
+
+
+  &__home-link {
+
+    text-decoration: none;
+    display: inline-block;
+    color: $color-white;
+
+    &:visited,
+    &:active,
+    &:hover {
+      color: $color-white;
+    }
+
+    &:hover {
+      // text-decoration: underline;
+    }
+
+  }
+
+  &__app-name {
+
+    @include font-size(5);
+
+    @include breakpoint(tablet) {
+      font-size: $font-size-4;
+    }
+
+    @include breakpoint(laptop) {
+      @include font-size(5);
+    }
+
+  }
+
+  &__app-abbr {
+
+    font-weight: $font-bold;
+
+    .header-app__home-link:hover & {
+      border-bottom: 1px solid $component-text-color;
+      cursor: pointer;
+    }
+
+    &[title] {
+      border-bottom: 0;
+      text-decoration: none;
+    }
+
+    &:after {
+
+      @include breakpoint(tablet) {
+        content: ' |';
+        font-weight: $font-light;
+      }
+
+      .header-app__home-link:hover & {
+        border-bottom: 1px solid $component-bgcolor;
+      }
+
+    }
+
+  }
+
+  &__app-full {
+
+    display: none;
+    font-weight: $font-light;
+
+    @include breakpoint(tablet) {
+      display: inline;
+    }
+
+    .header-app__home-link:hover & {
+      border-bottom: 1px solid $component-text-color;
+    }
+
+  }
+}
+

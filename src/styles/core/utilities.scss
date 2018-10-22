@@ -1,0 +1,331 @@
+@import './px-to-rem.scss';
+
+
+// -----------------------------------------------------------------------------
+// Grid Functions
+
+// scss-lint:disable PropertySpelling
+
+@mixin grid-row() {
+  letter-spacing: -.31em;
+  *letter-spacing: normal;
+  *word-spacing: -.43em;
+  text-rendering: optimizespeed;
+  font-family: $font-base;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  margin-left: -$grid-gutter;
+}
+
+@mixin grid-column() {
+
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+  padding-left: $grid-gutter;
+
+  // scss-lint:disable SelectorFormat
+  .grid--no-gutter & {
+    padding-left: 0;
+  }
+
+}
+
+@mixin grid-column-width($numerator, $denominator: $grid-columns) {
+  width: ($numerator / $denominator) * 100%;
+}
+
+@mixin grid($namespace: '') {
+
+  .grid__auto#{$namespace} {
+    @include grid-column();
+    flex: 1;
+  }
+
+  .grid__1#{$namespace},
+  .grid__1\/1#{$namespace},
+  .grid__1\/12#{$namespace},
+  .grid__1\/2#{$namespace},
+  .grid__1\/3#{$namespace},
+  .grid__1\/4#{$namespace},
+  .grid__1\/6#{$namespace},
+  .grid__10\/12#{$namespace},
+  .grid__11\/12#{$namespace},
+  .grid__12\/12#{$namespace},
+  .grid__2\/12#{$namespace},
+  .grid__2\/3#{$namespace},
+  .grid__3\/12#{$namespace},
+  .grid__3\/4#{$namespace},
+  .grid__4\/12#{$namespace},
+  .grid__5\/12#{$namespace},
+  .grid__5\/6#{$namespace},
+  .grid__6\/12#{$namespace},
+  .grid__7\/12#{$namespace},
+  .grid__8\/12#{$namespace},
+  .grid__9\/12#{$namespace} {
+    @include grid-column();
+  }
+
+  .grid__1\/12#{$namespace} {
+    @include grid-column-width(1);
+  }
+
+  .grid__1\/6#{$namespace},
+  .grid__2\/12#{$namespace} {
+    @include grid-column-width(2);
+  }
+
+  .grid__1\/4#{$namespace},
+  .grid__3\/12#{$namespace} {
+    @include grid-column-width(3);
+  }
+
+  .grid__1\/3#{$namespace},
+  .grid__4\/12#{$namespace} {
+    @include grid-column-width(4);
+  }
+
+  .grid__5\/12#{$namespace} {
+    @include grid-column-width(5);
+  }
+
+  .grid__1\/2#{$namespace},
+  .grid__6\/12#{$namespace} {
+    @include grid-column-width(6);
+  }
+
+  .grid__7\/12#{$namespace} {
+    @include grid-column-width(7);
+  }
+
+  .grid__2\/3#{$namespace},
+  .grid__8\/12#{$namespace} {
+    @include grid-column-width(8);
+  }
+
+  .grid__3\/4#{$namespace},
+  .grid__9\/12#{$namespace} {
+    @include grid-column-width(9);
+  }
+
+  .grid__10\/12#{$namespace},
+  .grid__5\/6#{$namespace} {
+    @include grid-column-width(10);
+  }
+  .grid__11\/12#{$namespace} {
+    @include grid-column-width(11);
+  }
+
+  .grid__1#{$namespace},
+  .grid__1\/1#{$namespace},
+  .grid__12\/12#{$namespace} {
+    @include grid-column-width(12);
+  }
+
+}
+
+
+@mixin font-size($scale: 3) {
+  @if $scale == 0 { font-size: $font-size-0; }                                    // 13
+  @if $scale == 1 { font-size: $font-size-1; }                                    // 14
+  @if $scale == 2 { font-size: $font-size-2; }                                    // 15
+  @if $scale == 3 { font-size: $font-size-3; }                                    // 17
+  @if $scale == 4 { font-size: $font-size-4; line-height: $heading-line-height; } // 17 REMOVE THIS ONE
+  @if $scale == 5 { font-size: $font-size-5; line-height: $heading-line-height; } // 20
+  @if $scale == 6 { font-size: $font-size-6; line-height: $heading-line-height; } // 20 REMOVE THIS ONE
+  @if $scale == 7 { font-size: $font-size-7; line-height: $heading-line-height; } // 30
+}
+
+
+// Heading mixins
+@mixin title {
+    font-size: $title-font-size;
+    font-weight: $font-bold;
+  }
+  
+  @mixin h1 {
+    font-size: $h1-font-size;
+    font-weight: $font-bold;
+  }
+  
+  @mixin h2 {
+    font-size: $h2-font-size;
+    font-weight: $font-bold;
+  }
+  
+  @mixin h3 {
+    font-size: $h3-font-size;
+    font-weight: $font-bold;
+  }
+  
+  @mixin h4 {
+    font-size: $h4-font-size;
+    font-weight: $font-bold;
+  }
+  
+  @mixin h5 {
+    font-size: $h5-font-size;
+    font-weight: $font-bold;
+  }
+  
+  @mixin h6 {
+    font-family: $font-sans;
+    font-size: $h6-font-size;
+    font-weight: $font-normal;
+    text-transform: uppercase;
+  }
+
+
+  // Mobile-first media query helper
+@mixin media($bp) {
+  @media screen and (min-width: #{$bp}) {
+    @content;
+  }
+}
+
+// Screen reader only helper
+@mixin sr-only() {
+  position: absolute;
+  left: -999em;
+}
+
+.usa-sr-only {
+  @include sr-only();
+}
+
+// Aria hidden helper
+@mixin accessibly-hidden() {
+  &[aria-hidden=true] {
+    display: none;
+  }
+}
+
+// Unstyled list helper
+@mixin unstyled-list() {
+  @include margin(0 null);
+  list-style-type: none;
+  padding-left: 0;
+
+  > li {
+    margin-bottom: 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Font Smoothing
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+
+/*********************
+BREAKPOINTS
+*********************/
+
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: 70em) { @content ; }
+ }
+  @else if $point == laptop {
+    @media (min-width: 64em) { @content ; }
+ }
+   @else if $point == tablet {
+    @media (min-width: 50em) { @content ; }
+ }
+  @else if $point == phablet {
+    @media (min-width: 37.5em)  { @content ; }
+ }
+ @else if $point == mobileonly {
+    @media (max-width: 37.5em)  { @content ; }
+
+ }
+}
+
+// -----------------------------------------------------------------------------
+// CSS Triangles
+// We use this to create equilateral triangles
+// $triangle-size - Used to set border-size. No default, set a px or em size.
+// $triangle-color - Used to set border-color which makes up triangle. No default
+// $triangle-direction - Used to determine which direction triangle points. Options: top, bottom, left, right
+// Sourced from foundation.zurb.com
+//
+// Example usage:
+// @include css-triangle(10px, #fff, top);
+@mixin css-triangle($triangle-size, $triangle-color, $triangle-direction) {
+
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border: inset $triangle-size;
+
+  @if ($triangle-direction == top) {
+    border-color: $triangle-color transparent transparent;
+    border-top-style: solid;
+  }
+
+  @if ($triangle-direction == bottom) {
+    border-color: transparent transparent $triangle-color;
+    border-bottom-style: solid;
+  }
+
+  @if ($triangle-direction == left) {
+    border-color: transparent transparent transparent $triangle-color;
+    border-left-style: solid;
+  }
+
+  @if ($triangle-direction == right) {
+    border-color: transparent $triangle-color transparent transparent;
+    border-right-style: solid;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Reset <ul> (note, you'll likely want to reset-li() too
+@mixin reset-ul() {
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+// -----------------------------------------------------------------------------
+// Reset <li>
+@mixin reset-li() {
+
+  display: list-item;
+  margin: 0;
+  padding: 0;
+
+}
+
+// -----------------------------------------------------------------------------
+// Reset <button>
+@mixin reset-button() {
+  text-align: left;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  user-select: text;
+
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+}
