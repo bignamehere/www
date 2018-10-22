@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import Butter from 'buttercms'
+import { Link } from 'react-router-dom';
+import Butter from 'buttercms';
+
+import Nav from '../components/Nav/nav';
 
 const butter = Butter('83c7a2fe135038b0520ed5ec9df758e57b76f681');
 
@@ -24,17 +26,17 @@ class Blog extends Component {
   }
 
   componentWillMount() {
-    //let page = this.props.params.page || 1;
-    //this.fetchPosts(page);
-    this.fetchPosts(1);
+    let page = this.props.match.params.page || 1;
+
+    this.fetchPosts(page);
 	}
 	
 	componentWillReceiveProps(nextProps) {
     this.setState({loaded: false});
 
-    let page = nextProps.params.page || 1;
+    let page = nextProps.match.params.page || 1;
 
-    this.fetchPosts(page)
+    this.fetchPosts(page);
   }
 
   render() {
@@ -42,7 +44,9 @@ class Blog extends Component {
       const { next_page, previous_page } = this.state.resp.meta;
 
       return (
-        <div>
+        <div className={"container"}>
+          <Nav />
+
           {this.state.resp.data.map((post) => {
             return (
               <div key={post.slug}>
