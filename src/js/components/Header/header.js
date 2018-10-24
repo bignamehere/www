@@ -18,15 +18,12 @@ class Header extends Component {
     };
   }
 
-
   render() {
     return (
     
-
-
       <StartEnd
-        breakpoints={[600]}
-        direction={['column','row']}>
+        breakpoints={[474,600]}
+        direction={['column','row','row']}>
         <Box>
           <Text element="h1" fontWeight={300}>{this.state.brandingText}</Text>
         </Box>
