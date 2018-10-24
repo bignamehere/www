@@ -1,6 +1,9 @@
 
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import StartEnd from 'mineral-ui/StartEnd';
+import Box from 'mineral-ui/Box';
+import Text from 'mineral-ui/Text';
 import './header.scss';
 
 import Nav from  '../Nav/nav';
@@ -18,22 +21,20 @@ class Header extends Component {
 
   render() {
     return (
-    <header>
-      <div className={"header-app"}>
-        <div className={"header-app__bd"}>
-          <div className={"header-app__primary"}>
-            <Link className={"header-app__home-link"} to="/">
-              <span className={"header-app__app-name"}>
-                {this.state.brandingText}
-              </span>
-            </Link>
-          </div>
-          <div className={"header-app__secondary"}>
-            <Nav />
-          </div>
-        </div>
-      </div>
-		</header>
+    
+
+
+      <StartEnd
+        breakpoints={[600]}
+        direction={['column','row']}>
+        <Box>
+          <Text element="h1" fontWeight={300}>{this.state.brandingText}</Text>
+        </Box>
+        <Box>
+          <Nav />
+        </Box>
+      </StartEnd>
+		
     );
   }
 }

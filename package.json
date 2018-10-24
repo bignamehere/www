@@ -54,8 +54,12 @@
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
+    "emotion": "^9.2.12",
+    "emotion-theming": "^9.2.9",
     "html-beautify-webpack-plugin": "^1.0.5",
+    "mineral-ui": "^0.48.0",
     "pixrem": "^4.0.1",
+    "react-emotion": "^9.2.12",
     "react-router-dom": "^4.3.1"
   },
   "homepage": "https://bignamehere.github.io/www"
