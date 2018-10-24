@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Butter from 'buttercms';
 import { Helmet } from "react-helmet";
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 import Header from '../components/Header/header';
 
@@ -45,7 +46,9 @@ class BlogPost extends Component {
 
             <Header />
             <h1>{post.title}</h1>
-            <div dangerouslySetInnerHTML={{__html: post.body}} />
+            <div>{ ReactHtmlParser(post.body) }</div>
+            <div>{post.body}</div>
+            
           </div>
         </div>
       );

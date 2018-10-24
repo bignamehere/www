@@ -59,8 +59,6 @@ class Blog extends Component {
 
           <h1>{fields.header}</h1>
           <h3>{fields.lead}</h3>
-          <img width="100%" src={fields.hero_image} />
-
           {this.state.resp.data.map((post) => {
             return (
               <div key={post.slug}>
@@ -69,7 +67,7 @@ class Blog extends Component {
             )
           })}
 
-          <br />
+          <img width="100%" src={fields.hero_image} />
 
           <div>
             {previous_page && <Link to={`/insights/${previous_page}`}>Prev</Link>}
