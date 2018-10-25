@@ -15,7 +15,7 @@ class Header extends Component {
     super(props);
 
     this.state = {
-      brandingText: "bignamehere"
+      brandingText: "big name here"
     };
   }
 
@@ -24,7 +24,9 @@ class Header extends Component {
       <StartEnd
         breakpoints={[breakpoint_narrow,breakpoint_medium]}
         direction={['column','row','row']}>
-        <Text element="h2" fontWeight={300} color={teal_60}>{this.state.brandingText}</Text>
+        
+        <h1 className="logo">{this.state.brandingText}</h1>
+        
         <ThemeProvider theme={{color_themePrimary: 'darkgray'}}>
           <Nav />
         </ThemeProvider>

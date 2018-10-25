@@ -1,8 +1,10 @@
 /* Project specific overrides/additions */
 
+@import url('https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro');
+
 @import './core/variables.scss';
-//@import './core/utilities.scss';
-//@import './core/typography.scss';
+@import './core/utilities.scss';
+@import './core/typography.scss';
 //@import './core/fonts.scss';
 //@import './core/grid.scss';
 //
@@ -64,6 +66,10 @@ hr {
   background: $color-tertiary-200;
 }
 */
+
+.logo {
+  @include h1();
+}
 .butter-logo {
 	background-color: $color-black-light;
 }

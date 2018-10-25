@@ -120,7 +120,9 @@ $font-size-7 : 52;
 $lead-font-size: $font-size-4;
 $lead-line-height: 1.7;
 
-$font-sans:  'Source Sans Pro', $helvetica;
+$source-sans-pro: 'Source Sans Pro', sans-serif;
+$raleway: 'Raleway', sans-serif;
+$font-sans:  $source-sans-pro, $helvetica;
 $font-serif: 'Merriweather', $georgia;
 $font-mono:  $monospace, "Consolas", "Menlo", "Monaco", "Courier New", "Courier", monospace;
 
@@ -130,6 +132,11 @@ $font-light:  300;
 $font-normal: 400;
 $font-bold:   700;
 
+$h1-font: $raleway;
+$h2-font: $raleway;
+$h3-font: $raleway;
+$h4-font: $source-sans-pro;
+$h5-font: $source-sans-pro;
 
 // ---------------------------------------------------------------------------
 // FSA Grid Settings
