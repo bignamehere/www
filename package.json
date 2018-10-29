@@ -4,7 +4,7 @@
   "description": "Portfolio website for Casey Hill.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --config webpack.dev.js",
+    "start": "webpack-dev-server --hotOnly --mode development --config webpack.dev.js",
     "build": "webpack --mode production --optimize-minimize --config webpack.prod.js",
     "watch": "webpack --watch",
     "predeploy": "npm run build",

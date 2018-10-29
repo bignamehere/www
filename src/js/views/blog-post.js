@@ -4,8 +4,10 @@ import { Helmet } from "react-helmet";
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 import Header from '../components/Header/header';
+import Footer from '../components/Footer/footer';
 
 const butter = Butter('83c7a2fe135038b0520ed5ec9df758e57b76f681');
+const butterLogo = "https://cdn.buttercms.com/resize=width:400/tV063DQ4TlGdZuAxuvXw";
 
 class BlogPost extends Component {
 
@@ -49,6 +51,8 @@ class BlogPost extends Component {
             <div>{ ReactHtmlParser(post.body) }</div>
             <div>{post.body}</div>
             
+            <Footer logoSrc={butterLogo} />
+
           </div>
         </div>
       );

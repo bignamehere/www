@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import Butter from 'buttercms';
 
 import Header from '../components/Header/header';
+import Footer from '../components/Footer/footer';
 
 const butter = Butter('83c7a2fe135038b0520ed5ec9df758e57b76f681');
+const butterLogo = "https://cdn.buttercms.com/resize=width:400/tV063DQ4TlGdZuAxuvXw";
 
 class Blog extends Component {
 
@@ -74,6 +76,9 @@ class Blog extends Component {
 
             {next_page && <Link to={`/insights/${next_page}`}>Next</Link>}
           </div>
+
+          <Footer logoSrc={butterLogo} />
+
         </div>
       );
     } else {

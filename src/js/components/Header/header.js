@@ -3,9 +3,8 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import { ThemeProvider } from 'mineral-ui/themes';
 import StartEnd from 'mineral-ui/StartEnd';
+import { breakpoint_narrow, breakpoint_medium } from 'mineral-ui-tokens';
 import Text from 'mineral-ui/Text';
-import { breakpoint_narrow, breakpoint_medium, teal_60 } from 'mineral-ui-tokens';
-import './header.scss';
 
 import Nav from  '../Nav/nav';
 
@@ -15,7 +14,7 @@ class Header extends Component {
     super(props);
 
     this.state = {
-      brandingText: "big name here"
+      brandingText: "bignamehere"
     };
   }
 

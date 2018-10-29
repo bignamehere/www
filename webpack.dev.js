@@ -55,3 +55,5 @@ module.exports = merge(common, {
     })
   ]
 });
+
+module.exports.plugins.push( new webpack.HotModuleReplacementPlugin() );
