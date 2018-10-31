@@ -5,6 +5,7 @@ import "./app.scss";
 import Routes from '../routes/routes';
 
 class App extends Component {
+
   render() {
     return (
       <Routes />

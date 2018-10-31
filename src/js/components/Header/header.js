@@ -1,12 +1,10 @@
 
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import { ThemeProvider } from 'mineral-ui/themes';
 import StartEnd from 'mineral-ui/StartEnd';
-import Flex, {FlexItem} from 'mineral-ui/Flex';
-import Box from 'mineral-ui/Box';
+import { breakpoint_narrow, breakpoint_medium } from 'mineral-ui-tokens';
 import Text from 'mineral-ui/Text';
-import IconCode from 'mineral-ui-icons/IconCode';
-import './header.scss';
 
 import Nav from  '../Nav/nav';
 
@@ -22,21 +20,16 @@ class Header extends Component {
 
   render() {
     return (
-    
       <StartEnd
-        breakpoints={[474,600]}
+        breakpoints={[breakpoint_narrow,breakpoint_medium]}
         direction={['column','row','row']}>
-        <Box>
-          <Flex direction={['row']}>
-            <FlexItem><IconCode size="2.5em" /></FlexItem>
-            <FlexItem><Text element="h2" fontWeight={300}>{this.state.brandingText}</Text></FlexItem>
-          </Flex>
-        </Box>
-        <Box>
+        
+        <h1 className="logo">{this.state.brandingText}</h1>
+        
+        <ThemeProvider theme={{color_themePrimary: 'darkgray'}}>
           <Nav />
-        </Box>
-      </StartEnd>
-		
+        </ThemeProvider>
+      </StartEnd>		
     );
   }
 }

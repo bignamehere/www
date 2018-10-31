@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import Butter from 'buttercms'
 
 import Header from '../components/Header/header';
+import Footer from '../components/Footer/footer';
 
 const butter = Butter('83c7a2fe135038b0520ed5ec9df758e57b76f681');
+const butterLogo = "https://cdn.buttercms.com/resize=width:400/tV063DQ4TlGdZuAxuvXw";
 
 class Home extends Component {
 
@@ -29,14 +31,15 @@ class Home extends Component {
       
       return (
         <div className={"container"}>
+          
           <Header />
           
           <h1>{fields.header}</h1>
           <h3>{fields.lead}</h3>
           <img width="100%" src={fields.hero_image} />
-          <div className={"butter-logo"}>
-            <img width="100%" src={fields.butter_logo} />
-          </div>
+          
+          <Footer logoSrc={butterLogo} />
+
         </div>
       );
     } else {
